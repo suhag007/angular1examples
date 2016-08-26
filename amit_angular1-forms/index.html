@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>angular assignment 5 </title>
+        <script type="text/javascript" src="https://code.angularjs.org/1.3.8/angular.min.js"></script>
+        <script type="text/javascript" src="angularapp.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body ng-app='myapp'>
+        <div style="margin: 0px auto; padding: 5px;">
+            <div ng-controller='controller'>
+                <div class="form-style-8" style="height: auto; margin: 5px; width: 100%;">
+                    <h2>Login to your account</h2>
+                    <form name="myForm">
+
+                        <input type="text" name="firstname" ng-model="firstname" placeholder="firstname" required>
+                        <br/>
+                        <div ng-show="myForm.$submitted || myForm.firstname.$touched">
+                            <div ng-show="myForm.firstname.$error.required">Tell us your firstname.</div>
+                        </div>
+
+                        <input type="text" name="lastname" ng-model="lastname" placeholder="lastname" required>
+                        <br/>
+                        <div ng-show="myForm.$submitted || myForm.lastname.$touched">
+                            <div ng-show="myForm.lastname.$error.required">Tell us your lastname.</div>
+                        </div>
+
+                        <input type="email" ng-model="email" placeholder="Email" name="uEmail" required>
+                        <br />
+                        <div ng-show="myForm.$submitted || myForm.uEmail.$touched">
+                            <span ng-show="myForm.uEmail.$error.required">Tell us your email.</span>
+                            <span ng-show="myForm.uEmail.$error.email">This is not a valid email.</span>
+                        </div>
+
+                        <input type="password" name="password" ng-model="password" placeholder="password" ng-minlength="6" required>
+                        <br/>
+                        <div ng-show="myForm.$submitted || myForm.password.$touched" >
+                            <div ng-show="myForm.password.$error.minlength"> password should be min 6 character long</div>
+                        </div>
+                        <input type="submit" ng-click="update()" value="Submit" ng-disabled="myForm.$invalid">
+                    </form>
+                </div>
+                <div ng-if="mustShow" style="width: 100%; height: 50px; background-color: green;">{{message}}</div>
+            </div>
+            <hr>
+            <div ng-controller='output'>
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label >Search</label>
+                        <input type="text" ng-model="search" class="form-control" placeholder="Search">
+                    </div>
+                </form>
+                <table>
+                    <tr>
+                        <th ng-click="sort('email')">Email
+                            <span class="glyphicon sort-icon" ng-show="sortKey == 'email'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+                        <th ng-click="sort('firstname')">firstname
+                            <span class="glyphicon sort-icon" ng-show="sortKey == 'firstname'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+                        <th ng-click="sort('lastname')">lastname
+                            <span class="glyphicon sort-icon" ng-show="sortKey == 'lastname'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+                    </tr>
+                    <tr ng-repeat="x in products| orderBy:sortKey:reverse | filter:search | orderBy:myOrderBy |startFrom:currentPage * pageSize | limitTo:pageSize">
+                        <td>{{x.email}}</td>
+                        <td>{{x.firstname}}</td>
+                        <td>{{x.lastname}}</td>
+                    </tr>
+                </table>
+                <button ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1">Previous</button>
+                {{currentPage + 1}}/{{numberOfPages()}}
+                <button ng-disabled="currentPage >= leng / pageSize - 1" ng-click="currentPage = currentPage + 1">Next</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<table>

@@ -1,0 +1,25 @@
+
+<html>
+    <head>
+        <title>angular assignment 6 </title>
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <script type="text/javascript" src="https://code.angularjs.org/1.3.8/angular.min.js"></script>
+        <script type="text/javascript" src="angularapp.js"></script>
+        <script src="//angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
+    </head>
+    <body ng-app="routerApp">
+        <nav class="navbar navbar-inverse" role="navigation">
+            <div class="navbar-header">
+                <a class="navbar-brand" ui-sref="#">AngularUI Router</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a ui-sref="login">login</a></li>
+                <li><a ui-sref="register">register</a></li>
+            </ul>
+        </nav>
+
+        <div class="container">    
+            <div ui-view></div>
+        </div>
+    </body>
+</html>

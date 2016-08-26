@@ -1,0 +1,25 @@
+<div ng-controller="home" ng-init="check()">
+    <div>
+        <div class="dropdown">
+            <button class="button">Dropdown</button>
+            <ul>
+                <li><a ng-click="dropdownMessage(1)">Item 1</a></li>
+                <li><a ng-click="dropdownMessage(2)">Item 2</a></li>
+                <li><a ng-click="dropdownMessage(3)">Item 3</a></li>
+                <li><a ng-click="dropdownMessage(4)">Item 4</a></li>
+            </ul>
+        </div>
+        <div class="dropdown">
+            <button class="button">Dropdown</button>
+            <ul>
+                <li><a ng-click="dropdownMessage(1)">Item 1</a></li>
+                <li><a ng-click="dropdownMessage(2)">Item 2</a></li>
+                <li><a ng-click="dropdownMessage(3)">Item 3</a></li>
+                <li><a ng-click="dropdownMessage(4)">Item 4</a></li>
+            </ul>
+        </div>
+    </div>    
+
+    <div>Welcome {{username}}</div>
+    <button type="button" ng-click="signout()" class="btn btn-primary">SignOut</button>
+</div>

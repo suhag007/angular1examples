@@ -1,0 +1,26 @@
+<div ng-controller='login' ng-init="check()">    
+    <h3>Login page</h3>
+    <form name="myForm">
+        <div class="form-group" style="margin: 0px auto; align-content: center;">
+            <label for="email" style="text-align: left;" >Email address:</label><br/>    
+            <input type="email" ng-model="email" placeholder="Email" name="uEmail" required>
+            <div ng-show="myForm.uEmail.$touched">
+                <span ng-show="myForm.uEmail.$error.required">Tell us your email.</span>
+                <span ng-show="myForm.uEmail.$error.email">This is not a valid email.</span>
+            </div>
+            <br/>
+
+            <label for="password" style="text-align: left;">password:</label><br/> 
+            <input type="password" name="password" ng-model="password" placeholder="password" ng-minlength="6" required>
+            <div ng-show="myForm.password.$touched" >
+                <div ng-show="myForm.password.$error.minlength"> password should be min 6 character long</div>
+            </div>
+            <br/>
+            <br/>
+            <input class="btn btn-primary" type="submit" ng-click="login()" value="Submit" ng-disabled="myForm.$invalid">
+        </div>
+    </form>
+    <div ng-show="mustShow" class="alert alert-success">
+        <strong>{{message}}</strong>
+    </div>
+</div>

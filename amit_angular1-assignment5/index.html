@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>angular assignment 5 </title>
+    <script type="text/javascript" src="https://code.angularjs.org/1.3.8/angular.min.js"></script>
+	<script type="text/javascript" src="angularapp.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body ng-app='myapp'>
+<div ng-controller='controller'>
+  <div>
+    <h5> using ng-class example </h5>
+    <input type="checkbox" ng-model="item.checked" style="float: left;">click this to change color
+    <p ng-class="item.checked ? 'red':'blue'" >
+        this will change color 
+     </p>
+  </div>
+  <div>
+     <h5> using ng-style example </h5>
+     <input type="checkbox" ng-model="value" ng-click="changecolor(value)" style="float: left;">click this to change color
+     <p ng-style="style">this will change color</p> 
+  </div>
+</div>
+
+</div>
+</body>
+</html>
